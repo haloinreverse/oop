@@ -10,6 +10,7 @@ class Matrix:
     def __getitem__(self, item: int):
         return self.__data[item]
 
+
     #метод, возвращающий число строк в матрице
     def get_number_of_rows(self):
         return len(self.__data)
@@ -17,3 +18,5 @@ class Matrix:
     # метод, возвращающий число столбцов в матрице
     def get_number_of_columns(self):
         return len(self.__data[0])
+
+
