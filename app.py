@@ -22,3 +22,22 @@ class App:
     def execute(self):
         self.__matrix = Matrix()
         self.__show_command_menu()
+        n = int(input("Введите число: "))
+        while n != 6:
+            match n:
+                case 1:
+                    pass
+                    # TODO
+                case 2:
+                    print(f'Определитель матрицы равен: {self.__matrix.get_det()}')
+                case 3:
+                    pass
+                    #TODO
+                case 4:
+                    pass
+                    #TODO
+                case 5:
+                    self.__print_matrix()
+                case 6:
+                    break
+            self.__show_command_menu()

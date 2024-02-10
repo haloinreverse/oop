@@ -19,4 +19,28 @@ class Matrix:
     def get_number_of_columns(self):
         return len(self.__data[0])
 
+    #метод получения k-ого минора
+    def __get_minor(self, data, k):
+        res = []
+        for r in data[1:]:
+            row = []
+            for j in range(len(r)):
+                if j != k:
+                    row.append(r[j])
+            res.append(row)
+        return res
 
+    #рекурсивный метод для вычисления определителя матрицы
+    def __det_count(self, data):
+        n = len(data)
+        if n == 2:
+            return data[0][0] * data[1][1] - data[0][1] * data[1][0]
+        s = 0
+        z = 1
+        for i in range(n):
+            s = s + z * data[0][i] * self.__det_count(self.__get_minor(data, i))
+            z = -z
+        return s
+    #публичный метод для нахождения определителя матрицы
+    def get_det(self):
+        return self.__det_count(self.__data)
