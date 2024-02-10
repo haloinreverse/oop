@@ -42,5 +42,35 @@ class Matrix:
             z = -z
         return s
     #публичный метод для нахождения определителя матрицы
-    def get_det(self):
+    def det(self):
         return self.__det_count(self.__data)
+    #публичный метод для вывода матрицы на печать
+    def print(self):
+        print('Матрица:')
+        for i in range(0, self.get_number_of_rows()):
+            for j in range(0, self.get_number_of_columns()):
+                print(self[i][j], end=' ')
+            print('\n')
+        print('')
+
+    def rank(self):
+        n = self.get_number_of_columns()
+        m = self.get_number_of_rows()
+        data = self.__data
+        rank = max(n, m)
+        lines = [False for x in range(n)]
+        for i in range(0, m):
+            for j in range(0, n):
+                if (not lines[j]) and (abs(data[j][i]) > 0):
+                    break
+            if j == n:
+                rank = rank - 1
+            else:
+                lines[j] = True
+                for p in range(i+1,m):
+                    data[j][p] = data[j][p]/data[j][i]
+                for k in range(0, n):
+                    if (k != j) and (abs(data[k][i]) > 0):
+                        for p in range(i+1, m):
+                            data[k][p] = data[k][p] - data[j][p] * data[k][i]
+        return rank

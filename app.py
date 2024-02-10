@@ -11,14 +11,6 @@ class App:
         print('5. Вывести в консоль текущую матрицу.')
         print('6. Выйти из приложения.')
 
-    def __print_matrix(self):
-        print('Матрица:')
-        for i in range(0, self.__matrix.get_number_of_rows()):
-            for j in range(0, self.__matrix.get_number_of_columns()):
-                print(self.__matrix[i][j], end=' ')
-            print('\n')
-        print('')
-
     def execute(self):
         self.__matrix = Matrix()
         self.__show_command_menu()
@@ -29,15 +21,15 @@ class App:
                     pass
                     # TODO
                 case 2:
-                    print(f'Определитель матрицы равен: {self.__matrix.get_det()}')
+                    print(f'Определитель матрицы равен: {self.__matrix.det()}')
                 case 3:
                     pass
                     #TODO
                 case 4:
-                    pass
-                    #TODO
+                    print(f'Ранг матрицы равен: {self.__matrix.rank()}')
                 case 5:
-                    self.__print_matrix()
+                    self.__matrix.print()
                 case 6:
                     break
             self.__show_command_menu()
+            n = int(input("Введите число: "))
