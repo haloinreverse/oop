@@ -1,4 +1,5 @@
 from matrix import Matrix
+from matrix import number
 #описываем класс "Консольное приложение"
 class App:
     def __show_command_menu(self):
@@ -18,8 +19,16 @@ class App:
         while n != 6:
             match n:
                 case 1:
-                    pass
-                    # TODO
+                    n = int(input("Введите размерность матрицы: "))
+                    data = [[0 for j in range(n)] for i in range(n)]
+                    print("Вводите числа по одному: ")
+                    for i in range(n):
+                        for j in range(n):
+                            num = number(input())
+                            data[i][j] = num
+                    self.__matrix.set_data(data)
+                    print("Новая матрица успешно задана")
+
                 case 2:
                     print(f'Определитель матрицы равен: {self.__matrix.det()}')
                 case 3:
