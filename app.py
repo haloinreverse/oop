@@ -23,8 +23,9 @@ class App:
                 case 2:
                     print(f'Определитель матрицы равен: {self.__matrix.det()}')
                 case 3:
-                    pass
-                    #TODO
+                    self.__matrix.transpose()
+                    print("Матрица была транспонирована")
+                    self.__matrix.print()
                 case 4:
                     print(f'Ранг матрицы равен: {self.__matrix.rank()}')
                 case 5:

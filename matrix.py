@@ -52,7 +52,7 @@ class Matrix:
                 print(self[i][j], end=' ')
             print('\n')
         print('')
-
+    # публичный метод для расчёта ранга матрицы
     def rank(self):
         n = self.get_number_of_columns()
         m = self.get_number_of_rows()
@@ -74,3 +74,11 @@ class Matrix:
                         for p in range(i+1, m):
                             data[k][p] = data[k][p] - data[j][p] * data[k][i]
         return rank
+
+    def transpose(self):
+        n = self.get_number_of_columns()
+        m = self.get_number_of_rows()
+        for i in range(m):
+            for j in range(n):
+                if (i<=j):
+                    self.__data[i][j], self.__data[j][i] = self.__data[j][i], self.__data[i][j]
